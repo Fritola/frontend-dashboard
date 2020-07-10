@@ -1,6 +1,6 @@
 backend in https://github.com/Fritola/backend-dashboard
 
-hosted in https://dashboard-frontend-ten.vercel.app/
+hosted in https://dashboard-frontend-snowy.vercel.app/
 
 ## Available Scripts
 
