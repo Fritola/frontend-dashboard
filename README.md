@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 backend in https://github.com/Fritola/backend-dashboard
 
+hosted in https://dashboard-frontend-ten.vercel.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
