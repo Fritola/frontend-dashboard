@@ -10,9 +10,14 @@ export const ContainerCreation = styled.div`
     margin-top: 1%;
     height: 30vw;
     width: 400px;
+    min-width: 450px;
     margin-right: 50px;      
     margin-left: 50px;      
     border-radius: 10px;   
+    p{
+        font-size: 14px;
+        color: #f00;
+    }
 
     @media (max-width: 1200px) { 
         height: 40vw;
@@ -37,7 +42,7 @@ export const ContainerCreation = styled.div`
         border-radius: 15px;  
         @media (max-width: 1200px) { 
             width: 290px;
-        }      
+        }              
     }
 `
 

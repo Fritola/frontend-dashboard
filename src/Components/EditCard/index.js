@@ -8,23 +8,30 @@ import api from '../../Services/api'
 const EditCard = ({selectedUser}) => {    
 
     const[user, setUser] = useState(selectedUser)
+    const[error, setError] = useState(false)
     const { data, mutate } = useFetch('/user')
     
     const editUser = async (e) => {
         e.preventDefault()        
-        let {nome, email, cpf, telefone} = user   
-                
-        await api.put(`/user/${user._id}`, {
-            nome,
-            email,
-            cpf,
-            telefone
-        })
-        mutate('/api/user')   
-        setUser({nome: '', email: '', telefone: '', cpf: ''})     
+        let {nome, email, cpf, telefone} = user  
+        
+        if(!nome || !email || !cpf || !telefone){
+            setError(!error)
+            return false
+        }else{
+            await api.put(`/user/${user._id}`, {
+                nome,
+                email,
+                cpf,
+                telefone
+            })        
+            mutate('/api/user')          
+            setUser('')
+        }
     }
  
     const handleInput = e => {
+        setError(false)
         const {name, value} = e.target
         setUser({...user, [name]: value})           
     }
@@ -37,7 +44,7 @@ const EditCard = ({selectedUser}) => {
                 <input name="email" onChange={handleInput} type="email" placeholder="E-mail" value={user.email}/>
                 <input name="telefone" onChange={handleInput} type="phone" placeholder="Telefone" value={user.telefone}/>
                 <input name="cpf" onChange={handleInput} type="text" placeholder="CPF" value={user.cpf}/>
-
+                {error && <p>*Faltam dados</p>}
                 <CreateButton onClick={editUser}>Editar</CreateButton>
             </form>
         </CreateCardContainer>
