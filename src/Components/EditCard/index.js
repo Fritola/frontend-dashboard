@@ -2,51 +2,46 @@ import React, {useState} from 'react'
 
 import {CreateTitle, CreateCardContainer, CreateButton} from '../../StyledComponents/CreateCard'
 
+import { useFetch } from '../../hooks/useFetch';
 import api from '../../Services/api'
 
-import { useFetch } from '../../hooks/useFetch';
+const EditCard = ({selectedUser}) => {    
 
-const CreateCard = () => {
-
-    const[user, setUser] = useState({nome: '', email: '', telefone: '', cpf: ''})
-
+    const[user, setUser] = useState(selectedUser)
     const { data, mutate } = useFetch('/user')
-
-    const createUser = async (e) => {
+    
+    const editUser = async (e) => {
         e.preventDefault()        
         let {nome, email, cpf, telefone} = user   
-        
-        mutate('/api/user', {...data.users, user}, false)
-        
-        await api.post('/user', {
+                
+        await api.put(`/user/${user._id}`, {
             nome,
             email,
             cpf,
             telefone
         })
-
-        mutate('/api/user')
-        setUser({nome: '', email: '', telefone: '', cpf: ''})
+        mutate('/api/user')   
+        setUser({nome: '', email: '', telefone: '', cpf: ''})     
     }
  
     const handleInput = e => {
         const {name, value} = e.target
         setUser({...user, [name]: value})           
     }
-
+    
     return(
         <CreateCardContainer>
-            <CreateTitle>Crie um novo usuário</CreateTitle>
+            <CreateTitle>Edite o usuário</CreateTitle>
             <form action="">
                 <input name="nome" onChange={handleInput} type="text" placeholder="Nome" value={user.nome}/>
                 <input name="email" onChange={handleInput} type="email" placeholder="E-mail" value={user.email}/>
                 <input name="telefone" onChange={handleInput} type="phone" placeholder="Telefone" value={user.telefone}/>
                 <input name="cpf" onChange={handleInput} type="text" placeholder="CPF" value={user.cpf}/>
 
-                <CreateButton onClick={createUser}>Criar</CreateButton>
+                <CreateButton onClick={editUser}>Editar</CreateButton>
             </form>
         </CreateCardContainer>
     )
 }
 
-export default CreateCard
+export default EditCard

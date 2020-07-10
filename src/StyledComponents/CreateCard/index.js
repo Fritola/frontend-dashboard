@@ -1,17 +1,25 @@
 import styled from 'styled-components'
 
 export const ContainerCreation = styled.div`
+@media (max-width: 836px) { 
+    display: none;
+}
     background: #f4f7fb;
     display: flex;
     justify-content: center;    
-    height: 25vw;
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 1%;
+    height: 30vw;
+    width: 400px;
+    margin-right: 50px;      
+    margin-left: 50px;      
     border-radius: 10px;   
 
-    width: 30%;
-    margin-right: 50px;
-
+    @media (max-width: 1200px) { 
+        height: 40vw;
+        width: 70%;
+        margin-top: 8%;
+    }
+    
     form{
         display: flex;
         flex-direction: column;
@@ -26,7 +34,10 @@ export const ContainerCreation = styled.div`
         padding: 15px;
         background: #eee;
         border: none;
-        border-radius: 15px;        
+        border-radius: 15px;  
+        @media (max-width: 1200px) { 
+            width: 290px;
+        }      
     }
 `
 
@@ -44,6 +55,7 @@ export const CreateTitle = styled.span`
 
 export const CreateButton = styled.button`
     color: #fff;
+    outline: none;
     cursor: pointer;
     margin-top: 10px;
     background: #5457f7;

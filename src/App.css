@@ -4,5 +4,6 @@
 }
 
 .ContentContainer{
-  width: 70%;
+  display: flex;
+  flex-direction: row-reverse;    
 }

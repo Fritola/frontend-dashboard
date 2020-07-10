@@ -10,7 +10,7 @@ import {
 import api from '../../Services/api'
 const LateralMenu = ({user}) => {  
     
-    console.log(user)
+    // console.log(user)
     return(
         <>
         <MenuContainer>     

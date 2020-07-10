@@ -8,6 +8,10 @@ export const MenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding: 5px;
+    @media (max-width: 480px) { 
+        width: 30%;
+    }
 `
 
 export const MenuUserContainer = styled.div`

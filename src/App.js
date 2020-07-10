@@ -29,13 +29,12 @@ function App() {
 			{loading != false &&
 			<>
 				<LateralMenu user={user}/>
-				<div className="ContentContainer">
-					<h2>Boa noite, {user.name.first}</h2>      					
+				<div className="ContentContainer">					
 					<CardUser/>
 				</div>
-				<ContainerCreation>
+				{/* <ContainerCreation>
 					<CreateCard/>
-				</ContainerCreation>
+				</ContainerCreation> */}
 			</>}			
 		</div>
 	);
